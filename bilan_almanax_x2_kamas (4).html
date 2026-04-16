@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALMANAX x2 KAMAS — 26 Avril</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --bg2: #13161e;
+    --bg3: #1a1e28;
+    --border: #2a2f3e;
+    --gold: #f0c040;
+    --gold2: #d4a820;
+    --gold-glow: rgba(240,192,64,0.18);
+    --teal: #3de0c8;
+    --red: #e05050;
+    --text: #e8eaf2;
+    --muted: #7a8098;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
+    padding: 32px 24px 48px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f0c040 0%, #d4a820 100%);
+    color: #0d0f14;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+
+  .header h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .header h1 span {
+    color: var(--gold);
+  }
+
+  .header-sub {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .header-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 16px auto 0;
+  }
+
+  /* ─── EVENT BANNER ─── */
+  .event-banner {
+    background: linear-gradient(135deg, rgba(240,192,64,0.1) 0%, rgba(240,192,64,0.03) 100%);
+    border: 1px solid rgba(240,192,64,0.35);
+    border-radius: 10px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .event-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .event-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .event-text span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .event-x2 {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--gold), var(--gold2));
+    color: #0d0f14;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ─── STATS TOP ─── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .stat-card.gold::before { background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+  .stat-card.teal::before { background: linear-gradient(90deg, var(--teal), #2ab8a2); }
+  .stat-card.purple::before { background: linear-gradient(90deg, #9b72cf, #7b52af); }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-card.teal .stat-value { color: var(--teal); }
+  .stat-card.purple .stat-value { color: #b490e8; }
+
+  .stat-unit {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ─── ZONES ─── */
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .zones-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .zone-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .zone-header {
+    background: var(--bg3);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .zone-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .zone-count {
+    background: rgba(240,192,64,0.15);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .zone-quests {
+    padding: 10px 0;
+  }
+
+  .quest-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    gap: 8px;
+  }
+
+  .quest-row:last-child { border-bottom: none; }
+
+  .quest-name {
+    font-size: 15px;
+    color: #b0b8cc;
+    font-weight: 400;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .quest-name a {
+    color: #b0b8cc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .quest-name a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  .quest-kamas {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .zone-total-bar {
+    margin: 0 16px 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .zone-total-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+
+  .zone-footer {
+    padding: 0 16px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .zone-total-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .zone-total-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ─── BREAKDOWN BAR ─── */
+  .breakdown-section {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 32px;
+  }
+
+  .breakdown-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .breakdown-bar-wrap {
+    display: flex;
+    height: 28px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    gap: 2px;
+  }
+
+  .breakdown-seg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0d0f14;
+    transition: flex 0.8s ease;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 4px;
+  }
+
+  .seg-amakna  { background: #e8a030; flex: 187882; }
+  .seg-abyssal { background: #5db8d0; flex: 219900; color: #0a1a22; }
+  .seg-pwak    { background: #d4556a; flex: 459800; }
+  .seg-frigost { background: #7db8e8; flex: 174310; color: #0a1220; }
+
+  .breakdown-legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .legend-info strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+
+  .legend-info span {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ─── TOTAL ─── */
+  .total-section {
+    background: linear-gradient(135deg, rgba(240,192,64,0.12) 0%, rgba(240,192,64,0.04) 100%);
+    border: 1px solid rgba(240,192,64,0.4);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .total-left strong {
+    display: block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .total-left .total-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  .total-left .total-kamas {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(240,192,64,0.7);
+    margin-left: 6px;
+  }
+
+  .total-right {
+    text-align: right;
+  }
+
+  .total-right .compare-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .total-right .compare-base {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #7a8098;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+  }
+
+  .total-right .compare-gain {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #5be07a;
+  }
+
+  .arrow-up { color: #5be07a; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">📺 Vidéo · 26 Avril 2026</div>
+  <h1>ALMANAX <span>x2 KAMAS</span></h1>
+  <div class="header-sub">20 quêtes répétables · Bilan des gains</div>
+  <div class="header-line"></div>
+</div>
+
+<!-- EVENT BANNER -->
+<div class="event-banner">
+  <div class="event-icon">📅</div>
+  <div class="event-text">
+    <strong>Événement Almanax — 26 Avril</strong>
+    <span>Les gains en kamas des quêtes journalières sont doublés pendant toute la journée</span>
+  </div>
+  <div class="event-x2">×2</div>
+</div>
+
+<!-- STATS TOP -->
+<div class="stats-grid">
+  <div class="stat-card gold">
+    <div class="stat-label">Total kamas</div>
+    <div class="stat-value">1 041 892</div>
+    <div class="stat-unit">kamas récoltés</div>
+  </div>
+  <div class="stat-card teal">
+    <div class="stat-label">Nombre de quêtes</div>
+    <div class="stat-value">20</div>
+    <div class="stat-unit">quêtes présentées</div>
+  </div>
+  <div class="stat-card purple">
+    <div class="stat-label">Moyenne / quête</div>
+    <div class="stat-value">52 095</div>
+    <div class="stat-unit">kamas en moyenne</div>
+  </div>
+</div>
+
+<!-- ZONES -->
+<div class="section-title">Détail par zone</div>
+<div class="zones-grid">
+
+  <!-- AMAKNA -->
+  <div class="zone-card">
+    <div class="zone-header">
+      <div class="zone-name">Amakna</div>
+      <div class="zone-count">3 quêtes</div>
+    </div>
+    <div class="zone-quests">
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/calendrier-de-lalmanax.html" target="_blank">Calendrier de l'Almanax</a></div>
+        <div class="quest-kamas">11 962</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/il-faut-que-cha-brille.html" target="_blank">Il faut que ça brille</a></div>
+        <div class="quest-kamas">87 960</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/leacutecole-fantastique.html" target="_blank">L'école fantastique</a></div>
+        <div class="quest-kamas">87 960</div>
+      </div>
+    </div>
+    <div class="zone-total-bar">
+      <div class="zone-total-fill" style="width:18%"></div>
+    </div>
+    <div class="zone-footer">
+      <div class="zone-total-label">Sous-total</div>
+      <div class="zone-total-value">187 882</div>
+    </div>
+  </div>
+
+  <!-- BASE ABYSSAL -->
+  <div class="zone-card">
+    <div class="zone-header">
+      <div class="zone-name">Base Abyssale</div>
+      <div class="zone-count">3 quêtes</div>
+    </div>
+    <div class="zone-quests">
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/pecircche-aux-krabouilleurs.html" target="_blank">Pêcheurs aux krabouilleurs</a></div>
+        <div class="quest-kamas">87 960</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/les-mercemers-sont-bien-outilleacutes.html" target="_blank">Les mercenaires bien outillés</a></div>
+        <div class="quest-kamas">87 960</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/livresse-des-profondeurs.html" target="_blank">Livresse des profondeurs</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+    </div>
+    <div class="zone-total-bar">
+      <div class="zone-total-fill" style="width:21%"></div>
+    </div>
+    <div class="zone-footer">
+      <div class="zone-total-label">Sous-total</div>
+      <div class="zone-total-value">219 900</div>
+    </div>
+  </div>
+
+  <!-- PWAK -->
+  <div class="zone-card">
+    <div class="zone-header">
+      <div class="zone-name">Île de Pwak</div>
+      <div class="zone-count">8 quêtes</div>
+    </div>
+    <div class="zone-quests">
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/chasse-aux-oeufs-de-pwak.html" target="_blank">Chasse aux œufs de Pwak</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/charli-et-la-chocolaterie.html" target="_blank">Charli et la chocolaterie</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/la-manie-du-recyclage.html" target="_blank">La manie du recyclage</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/des-croquants-a-devorer.html" target="_blank">Des croquants à dévorer</a></div>
+        <div class="quest-kamas">21 990</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/les-aleas-de-la-chocolaterie.html" target="_blank">Les aléas de la chocolaterie</a></div>
+        <div class="quest-kamas">175 920</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/jouer-au-chocolatier.html" target="_blank">Jouer au chocolatier</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/et-paf-ca-fait-un-shokipik.html" target="_blank">Et paf ça fait un Shokipik</a></div>
+        <div class="quest-kamas">43 980</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/l-euphorie-des-leporides.html" target="_blank">L'euphorie des léporidés</a></div>
+        <div class="quest-kamas">21 990</div>
+      </div>
+    </div>
+    <div class="zone-total-bar">
+      <div class="zone-total-fill" style="width:44%"></div>
+    </div>
+    <div class="zone-footer">
+      <div class="zone-total-label">Sous-total</div>
+      <div class="zone-total-value">459 800</div>
+    </div>
+  </div>
+
+  <!-- FRIGOST -->
+  <div class="zone-card">
+    <div class="zone-header">
+      <div class="zone-name">Frigost</div>
+      <div class="zone-count">6 quêtes</div>
+    </div>
+    <div class="zone-quests">
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/vacances-sur-glace.html" target="_blank">Vacances sur glace</a></div>
+        <div class="quest-kamas">33 560</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/faire-le-tas-de-pin.html" target="_blank">Faire le tas de pin</a></div>
+        <div class="quest-kamas">33 560</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/le-calendrier-des-reacutecoltes.html" target="_blank">Le calendrier des récoltes</a></div>
+        <div class="quest-kamas">23 960</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/jaurais-voulu-ecirctre-un-artisan.html" target="_blank">J'aurais voulu... artisan</a></div>
+        <div class="quest-kamas">23 960</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/fight-club.html" target="_blank">Fight Club</a></div>
+        <div class="quest-kamas">26 990</div>
+      </div>
+      <div class="quest-row">
+        <div class="quest-name"><a href="https://www.dofuspourlesnoobs.com/collecte-sanglante.html" target="_blank">Collecte sanglante</a></div>
+        <div class="quest-kamas">32 280</div>
+      </div>
+    </div>
+    <div class="zone-total-bar">
+      <div class="zone-total-fill" style="width:17%"></div>
+    </div>
+    <div class="zone-footer">
+      <div class="zone-total-label">Sous-total</div>
+      <div class="zone-total-value">174 310</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BREAKDOWN BAR -->
+<div class="breakdown-section">
+  <div class="breakdown-title">Répartition par zone</div>
+  <div class="breakdown-bar-wrap">
+    <div class="breakdown-seg seg-amakna">18%</div>
+    <div class="breakdown-seg seg-abyssal">21%</div>
+    <div class="breakdown-seg seg-pwak">44%</div>
+    <div class="breakdown-seg seg-frigost">17%</div>
+  </div>
+  <div class="breakdown-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#e8a030"></div>
+      <div class="legend-info">
+        <strong>Amakna</strong>
+        <span>187 882 k</span>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#5db8d0"></div>
+      <div class="legend-info">
+        <strong>Base Abyssale</strong>
+        <span>219 900 k</span>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#d4556a"></div>
+      <div class="legend-info">
+        <strong>Île de Pwak</strong>
+        <span>459 800 k</span>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#7db8e8"></div>
+      <div class="legend-info">
+        <strong>Frigost</strong>
+        <span>174 310 k</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOTAL -->
+<div class="total-section">
+  <div class="total-left">
+    <strong>Total kamas récoltés</strong>
+    <div>
+      <span class="total-num">1 041 892</span>
+      <span class="total-kamas">kamas</span>
+    </div>
+  </div>
+  <div class="total-right">
+    <div class="compare-label">Sans l'événement ×2</div>
+    <div class="compare-base">~520 946 kamas</div>
+    <div class="compare-gain">
+      <span class="arrow-up">▲</span>
+      +520 946 kamas gagnés
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>TENMALEXIS</span> · Almanax x2 Kamas · 26 Avril 2026 · Dofus 3.x
+</div>
+
+</body>
+</html>
